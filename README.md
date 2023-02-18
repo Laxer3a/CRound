@@ -45,7 +45,7 @@ Basically bit of object programming but not much. I have not decided how the OOP
 ## Axis 4 : Personal preferences.
 - 'auto' like feature will not exist. If typing is too long, define a shortcut using typedef. Everything explicit.
    - ex : thisPackage::struct::internalStruct  ==> typedef thisPackage::struct::internalStruct iStruct and voila !
-   - Of course, if no name conflict, short name is OK (ex #import a::b::c with struct d inside can directly call d)
+   - Of course, if no name conflict, short name is OK (ex #import pa::pb::pc with struct d inside can directly call d)
 - Add a 'nodefault' to 'default' possible switch cases : you garantee that the input you provide to the switch case is VALID for all cases (performance) and invalid values are UB (undefined behavior). (You own the responsability in exchange of performance gain explicit in the language. No more 'unreachable' compiler special magic)
 - sizeof available at compile time for conditionnal macrolike setup.
 - No exceptions.
