@@ -1,5 +1,5 @@
 # CRound
-Attempt at creating a next gen C language.
+Attempt at creating a next gen C language specs.
 
 Lately on Twitter a lot of debate is occuring about the complexity of "modern" C++.
 I am wondering how we can take a language simple as C and make it better.
