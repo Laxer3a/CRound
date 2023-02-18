@@ -44,7 +44,8 @@ Basically bit of object programming but not much. I have not decided how the OOP
   
 ## Axis 4 : Personal preferences.
 - 'auto' like feature will not exist. If typing is too long, define a shortcut using typedef. Everything explicit.
-   ex : thisPackage::struct::internalStruct  ==> typedef thisPackage::struct::internalStruct iStruct and voila !
+   - ex : thisPackage::struct::internalStruct  ==> typedef thisPackage::struct::internalStruct iStruct and voila !
+   - Of course, if no name conflict, short name is OK (ex #import a::b:c with struct d inside can directly call d)
 - Add a 'nodefault' to 'default' possible switch cases : you garantee that the input you provide to the switch case is VALID for all cases (performance) and invalid values are UB (undefined behavior). (You own the responsability in exchange of performance gain explicit in the language. No more 'unreachable' compiler special magic)
 - sizeof available at compile time for conditionnal macrolike setup.
 - No exceptions.
@@ -53,11 +54,12 @@ Basically bit of object programming but not much. I have not decided how the OOP
 - SIMD a first citizen (intrinsic support or inline assembly if you don't trust register allocators and optimizer from intrinsics)
 - Constant can use _ keyword to delimit and increase readability. ex : 0xDEAD_BE_EF
   - Binary constant are supported. ex : 0b0010_1100 (printf like formatting too)
+- Read bit block inside a word like var[14:23] instead of making manually and masks. 
 - No operator overloading.
   - Yep, it makes it harder for Vector3 / Vector4 / Complex numbers.
     - Or explicit  a + b + c => a .+ b .+ c ? Equivalent to a.add(b).add(c) kind of... ? 
   - But NO hidden complexity for the programmer. Reader must see that something is happening under the hood.
-- #incbinary type endianness <file> into array definition.
+- #incbinary type endianness <file> into array definition. (#include for text file is still possible but #include inside #include is not)
   - Allow to build binary table and include those without having to generate those doing printf.
   - Pass struct type and original endianness. Importer manages to modify byte order.(Except of struct with union like definitions : forbidden)
 
@@ -73,7 +75,7 @@ Basically bit of object programming but not much. I have not decided how the OOP
 - String would fit nicely. (.toLength(), toCStr(), ...)
   
 ## Axis 7 : Ability to extend class outside of the package.
-- extends struct A { void myFunction(A* this, ...my parameters...); }
+- extends struct A { void myFunction(ref A this, ...my parameters...); }
   - Useful to extend the string or float package. Ex : float.parse or string.ToUtf8() etc...
   - Unable to access internals from the package and only the object as parameter ? (First version ?)
   
@@ -89,8 +91,12 @@ Basically bit of object programming but not much. I have not decided how the OOP
   - 'override offset' should make it explicit when two members share the same memory.
   - No support in first draft and then can add back the C union later if needed.
 
+## Function pointers.
+- Need those for DLL and C communication. Provide and use C function pointer. Allows also to create complex mecanism (COM object), or even C++ objects.
+  
 ## Undefined : OOP
 - VTable / Trait like stuff...
+  - I don't like the idea of 'fat' pointer. TWO pointer maintenance cost, even only if virtual is...
 - AoS vs SoA.
   - Jay language is the one doing interesting things.
   - Would be nice to be able to define 'walking operator' : why not also morton code, etc... 
