@@ -48,21 +48,21 @@ Basically bit of object programming but not much. I have not decided how the OOP
 - internal : public from within the namespace, private outside.
 - private  : visible from the struct itself only.
 
-## Axis 6 : Boxed types
+## Idea 6 : Boxed types
 - All primitives types support object like feature. (float.Biggest, float.Smallest, float.Parse(...), like C#)
   - Same memory size, no difference from compiler perspective.
   - Nicer API.
 - String would fit nicely. (.toLength(), toCStr(), ...)
   
-## Axis 7 : Ability to extend class outside of the package.
+## Idea 7 : Ability to extend class outside of the package.
 - extends struct A { void myFunction(ref A this, ...my parameters...) { code } }
   - Useful to extend original things like string or float package. Ex : float.parse or string.ToUtf8() etc...
   - Unable to access internals from the package and only the object as parameter ? (First version ?)
   
-## Axis 8 : Code Generation
+## Idea 8 : Code Generation
 - .obj code generation ==> LLVM I think. Delegate the whole shenanigans to a well established backend.
 
-## Axis 9 : Structures
+## Idea 9 : Structures
 - Optionnal 'offset' tag : decide position in byte offset inside structure.
 - Optionnal 'order' tag : does not decide position exactly but sorted by order. (allow source order and memory order to be different)
 - Optionnal structure align tag : define if a struct need alignement.
@@ -70,6 +70,10 @@ Basically bit of object programming but not much. I have not decided how the OOP
 - What about union ? I think those are more dangerous than anything, yet useful. By allowing offset, we can also allow such behaviour.
   - 'override offset' should make it explicit when two members share the same memory.
   - No support in first draft and then can add back the C union later if needed ?
+
+## Idea 10 : Undefined values.
+- Verify that value are assigned or not in the path.
+- But technically possible to optimize compiler in telling that this unassigned value WRITE is going to be done before ANY READ. (sometime compiler can't detect that but human do).  Special instruction : 'dontcare' Ex : 'dontcare int value;'
 
 ## On the topics of strings.
 - Not a fat pointer. (Length + Ptr as a struct)
