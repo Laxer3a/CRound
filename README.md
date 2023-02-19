@@ -37,7 +37,7 @@ Basically bit of object programming but not much. I have not decided how the OOP
   - Again, avoid being bitten by forgetting break;
 - Function and procedure are two different things (procedure = function returning void)
   - Ignoring the result of a function returning a value will require explicitely 'ignore' keyword.
-- bool are not int. if (int) becomes if (int != 0) or (int == 0) like in Pascal or C#.
+- bool are not int. 'if (int)' becomes 'if (int != 0)' like in Pascal or C#.
   - Therefore if/for/while condition are boolean.
   - Compiler responsability to get same perf as C.
 - Cast are all explicit else treated as error (signed<->unsigned) or (bigger->smaller) or (int<->float). Again you type more. Yes it is annoying when you are used to C, but leaves no implicit issue unverified by the programmer. (Same as C#)
