@@ -27,6 +27,7 @@ Basically bit of object programming but not much. I have not decided how the OOP
 - Ability to put your own meta info on any item (function, struct, enum, etc...)
 - Obviously you don't pay the price if you don't want to. (Features added/removed at linking time)
 - Metadata can also concern compile options, target platform, version of compiler, version of library, etc...
+- Reflection is not only about enumerating things but calling/reading/writing things.
   
 ## Idea 3 : Remove some mistakes/dangers from original C.
 - Impossible to do assignment in conditionnal parameter : how many times people have been bitten by = instead of == inside a if / while / for loop.
@@ -110,6 +111,7 @@ Basically bit of object programming but not much. I have not decided how the OOP
    - Of course, if no name conflict, short name is OK (ex #import pa::pb::pc with struct d inside can directly call d)
 - Add a 'nodefault' to 'default' possible switch cases : you garantee that the input you provide to the switch case is VALID for all cases (performance) and invalid values are UB (undefined behavior). (You own the responsability in exchange of performance gain explicit in the language. No more 'unreachable' compiler special magic)
 - sizeof available at compile time for conditionnal macrolike setup.
+- Enum can be read as string too.  EnumA value; --> value.ToString()
 - No exceptions.
 - Memory allocation customization. Want the allocator to be replacable everywhere. Able to plug your own allocator in already existing libraries.
 - Memory alignment is fist citizen too. Defined in the language. (member, struct)
