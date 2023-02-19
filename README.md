@@ -19,7 +19,7 @@ Basically bit of object programming but not much. I have not decided how the OOP
 - Cargo idea is nice in Rust. (Unit test/validation, Benchmark, connection to a DB online checking downloading/uploading versions, etc...)
 
 ## Axis 1' : Outside world.
-- Generated .obj file are ELF. Compatible with existing linkers. Following ABIs etc... Basically export C functions.
+- Generated .obj files are ELF. Compatible with existing linkers. Following ABIs etc... Basically export C functions.
 - Can import C function statically (linking obj file from other compiler) or dynamically (dll like)
 
 ## Axis 2 : Reflection + meta data as default.
