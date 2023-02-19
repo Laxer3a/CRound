@@ -2,7 +2,7 @@
 Attempt at creating a next gen C language specs.
 
 Lately on Twitter a lot of debate is occuring about the complexity of "modern" C++.
-I am wondering how we can take a language simple as C and make it better.
+I am wondering how we can take a language simple as C as a base, modify it and try to make it better.
 
 Note : for now I use the word struct as C struct + non virtual function possible inside.
 Basically bit of object programming but not much. I have not decided how the OOP side of things should be handled.
