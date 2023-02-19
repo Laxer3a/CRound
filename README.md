@@ -91,7 +91,7 @@ Basically bit of object programming but not much. I have not decided how the OOP
 - No idea yet.
 
 ## Difference between pointer and array.
-- Use generics and span.
+- Use generic array class and span.
 - Pointer should only point to a single thing.
 - Pointer arithmetic still authorized.
 
