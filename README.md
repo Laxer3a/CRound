@@ -11,7 +11,7 @@ Basically bit of object programming but not much. I have not decided how the OOP
 - I like the idea that making a library can be released and downloaded into a single package (single file binary file, not an archive !!!).
   - Provide tool to split package again into sources if provided inside package.
 - Namespace would determine the library usage and unicity of the name. (One namespace = one package)
-  - Meta tag could define versions. (See Axis 2)
+  - Meta tag could define versions. (See Idea 2)
   - #import will replace #include and support optionnal version number if needed.
 - No more parsing and include each time we compile a source => Package will have sources + build binary AST/content mendatory, optionnal prebuild obj for target platform.
   - If sources/AST only are provided, ability to build obj for a specific platform. => What about inline assembly ?
