@@ -100,6 +100,10 @@ Basically bit of object programming but not much. I have not decided how the OOP
 - UTF8 the default.
 - Design problem : The string pointer point to the array of byte (and we always do ptr-4 to get size) or point to size and we always do (ptr+4) to get access to the string.
 - Is 4GB string too small ?
+- Memory management of strings... Want to avoid the mess of C/C++ with char*.
+  - Pass allocator when creating the first string. Then stuff like a_string + b_int use same allocator/free.
+  - But what happen with a_string + b_string ?
+  - Operator + issue. => Don't want to have overloading operators to support. (Special concatenation operator ? Ex : a + b + 3 => a$b$3 or a#b#3)
 
 ## Function pointers.
 - Need those for DLL and C communication. Provide and use C function pointer. Allows also to create complex mecanism (COM object), or even C++ objects.
@@ -131,14 +135,6 @@ Basically bit of object programming but not much. I have not decided how the OOP
 - multithreading / fibers
 - GPU ? Future of heterogeneous computing ? Write code for different system within ? ==> Metatags can come handy.
 - Bit support inside struct like C does ?
-
-## Undefined string
-- String struct wrapping two pointers ? (Start, end). One pointer + length ?
-- Always one zero char at the end to be able to get a ptr and C string out of it.
-- Memory management of strings...
-  - Pass allocator when creating the first string. Then stuff like a_string + b_int use same allocator/free.
-  - But what happen with a_string + b_string.
-  - Operator + issue. => Don't want to have overloading operators to support. (Special concatenation operator ? Ex : a + b + 3 => a$b$3 or a#b#3)
 
 ## Standard libraries
 - printf formatting is adapted to {1} number based, allowing to read the parameters orders the way you want. Other formatting parameters seems nice to keep.
