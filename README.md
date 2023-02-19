@@ -91,6 +91,16 @@ Basically bit of object programming but not much. I have not decided how the OOP
   - 'override offset' should make it explicit when two members share the same memory.
   - No support in first draft and then can add back the C union later if needed.
 
+## On the topics of strings.
+- Not a fat pointer. (Length + Ptr as a struct)
+- Want to store length AND store a ZERO at the end (but length return without the zero).
+  - Can just get raw ptr and use it as standard C string.
+- strlen becomes O(1).
+- Structure : [Size U32][Array of byte...]
+- UTF8 the default.
+- Design problem : The string pointer point to the array of byte (and we always do ptr-4 to get size) or point to size and we always do (ptr+4) to get access to the string.
+- Is 4GB string too small ?
+
 ## Function pointers.
 - Need those for DLL and C communication. Provide and use C function pointer. Allows also to create complex mecanism (COM object), or even C++ objects.
   
@@ -108,7 +118,6 @@ Basically bit of object programming but not much. I have not decided how the OOP
   - Replacing name with other name / modify raw text is evil (ex : #define true false )
   => #define #if etc... should be considered like a statement from the source language.
 - Inline assembler / ability to use assembler is a must. But what is the most convenient ? How to handle multiplatform as nicely as possible.
-- Strings ? Seen as array would be nice. C string compatibility would be nice but how to do it cleanly. String manipulation too painful in C/C++. C++ string class too complex to my taste.
 - Pointers, span and arrays.
   - Pointing to something and an array should be two different concepts. In one case you have only ONE item (like a reference), in the other case you delimit ranges and do some arithmetic,indexing on it.
 - C has just pointers. C++ has reference added.
