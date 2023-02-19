@@ -26,7 +26,7 @@ Basically bit of object programming but not much. I have not decided how the OOP
 - Ability to list what is inside a project at execution time for a package in this language.
 - Ability to put your own meta info on any item (function, struct, enum, etc...)
 - Obviously you don't pay the price if you don't want to. (Features added/removed at linking time)
-- Metadata can concern compile options, target platform, version of compiler, version of library, etc...
+- Metadata can also concern compile options, target platform, version of compiler, version of library, etc...
   
 ## Axis 3 : Remove mistakes/dangers from even C.
 - Impossible to do assignment in conditionnal parameter : how many times people have been bitten by = instead of == inside a if / while / for loop.
